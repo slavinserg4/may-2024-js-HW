@@ -6,24 +6,16 @@
 </head>
 <body>
 <script>
-    function Square (a,b){
-        return a*b;
-    }
-    function Circle (r){
-        return 3.14 * Math.pow(r,2);
-    }
-    function Cylinder (r,h){
-        return 2*3.14*r*(h+r);
-    }
-    function ArrayPrint (arr){
+    let Square = (a,b) =>  a*b;
+    let Circle = (r) => 3.14 * Math.pow(r,2);
+    let Cylinder = (r,h) => 2*3.14*r*(h+r);
+    let ArrayPrint = (arr) =>{
         for (const arrElement of arr) {
             console.log(arrElement);
         }
     }
-    function Paragraph(arg){
-        document.write(`<p>${arg}</p>`)
-    }
-    function List(word){
+    let Paragraph = (arg) => document.write(`<p>${arg}</p>`);
+    let List = (word) =>{
         document.write(`<div>
                             <ul>
                                 <li>${word}</li>
@@ -32,29 +24,29 @@
                             </ul>
                         </div>`)
     }
-    function ListCycle(words, n){
+    let ListCycle = (words, n) =>{
         document.write(`<ul>`);
-            for (let i=0;i<n;i++){
-                document.write(`<li>${words}</li>`);
-            }
+        for (let i=0;i<n;i++){
+            document.write(`<li>${words}</li>`);
+        }
         document.write(`</ul>`);
     }
-    function ListOfAray(array){
+    let ListOfAray = (array) =>{
         document.write(`<ul>`);
         for (const arrayElement of array) {
             document.write(`<li>${arrayElement}</li>`);
         }
         document.write(`</ul>`);
     }
-    function UsersArrayPrint(arr){
+    let UsersArrayPrint = (arr) =>{
         for (const arrElement of arr) {
             document.write(`<div>`);
             document.write(`<h4>Name: ${arrElement.name}; Age: ${arrElement.age};  Id: ${arrElement.id}</h4>`);
             document.write(`</div>`);
         }
     }
-    function MinNumberArray(arr){
-        let min = 1000;
+    let MinNumberArray = (arr) =>{
+        let min = arr[0];
         for (const arrElement of arr) {
             if(arrElement<min){
                 min=arrElement;
@@ -62,21 +54,21 @@
         }
         return min;
     }
-    function ArraySum(arr){
+    let ArraySum = (arr) =>{
         let Sum = 0;
         for (const arrElement of arr) {
             Sum+=arrElement;
         }
         return Sum;
     }
-    function Swap(arr,index1,index2){
+    let Swap = (arr,index1,index2) =>{
         let extra = 0;
         extra = arr[index1];
         arr[index1]=arr[index2];
         arr[index2]=extra;
         return arr;
     }
-    function Exchange(sumUAH,currencyValues,exchangeCurrency){
+    let Exchange = (sumUAH,currencyValues,exchangeCurrency) =>{
         let chosenCurrency;
         for (const CurrencyElement of currencyValues) {
             if(CurrencyElement.currency === exchangeCurrency){
@@ -90,6 +82,13 @@
 
 
 
+
+
+
+
+
+
+////////////////////////////////////////////////////
     let FirstTask = Square(10,30);
     console.log(FirstTask);
     ///////
@@ -123,7 +122,7 @@
     ];
     UsersArrayPrint(users);
     ///////
-    let Min = MinNumberArray([10,424,52,55,432,51]);
+    let Min = MinNumberArray([424,52,55,432,51]);
     console.log(Min);
     ///////
     console.log(ArraySum([10,10,200,56]));
@@ -131,8 +130,6 @@
     console.log(Swap([1,4,5,7,2,3,4],0,1));
     ///////
     console.log(Exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD'));
-
-
 
 
 
