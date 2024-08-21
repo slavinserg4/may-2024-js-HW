@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function User(id, name, surname , email, phone) {
+        this.id=id;
+        this.name=name;
+        this.surname=surname;
+        this.email=email;
+        this.phone=phone;
+    }
+    let arrayOfUser = [];
+    arrayOfUser.push(new User(4,'petya','vasilev','petya123@gmail.com', '+3809883484214'));
+    arrayOfUser.push(new User(5,'vasya','petrov','vasya52@gmail.com', '+380678305729'));
+    arrayOfUser.push(new User(8,'kolya','mongol','kolya26@gmail.com', '+380956295037'));
+    arrayOfUser.push(new User(42,'olya','tatar','olya425@gmail.com', '+380730475294'));
+    arrayOfUser.push(new User(13,'max','sheva','max412@gmail.com', '+380937503854'));
+    arrayOfUser.push(new User(54,'anya','gordon','anya462@gmail.com', '+380562435623'));
+    arrayOfUser.push(new User(27,'oleg','rubak','oleg6@gmail.com', '+380623462346'));
+    arrayOfUser.push(new User(16,'andrey','rudyu','andrey24@gmail.com', '+380846345264'));
+    arrayOfUser.push(new User(2,'masha','berezovskiy','masha1@gmail.com', '+380163452653'));
+    arrayOfUser.push(new User(9,'oleksandr','antonov','oleks9@gmail.com', '+380724547234'));
+    console.log(arrayOfUser);
+
+    let arrFiltered = arrayOfUser.filter(value => value.id%2===0);
+    console.log(arrFiltered);
+
+    let arrSorted = arrayOfUser.sort((a,b)=>a.id-b.id);
+    console.log(arrSorted);
+    //////////
+    class Client{
+        constructor(id, name, surname , email, phone, order) {
+            this.id=id;
+            this.name=name;
+            this.surname=surname;
+            this.email=email;
+            this.phone=phone;
+            this.order=order;
+        }
+    }
+    let arrayOfClients = [];
+    arrayOfClients.push(new Client(4,'petya','vasilev','petya123@gmail.com', '+3809883484214', ['Notebooks', 'Pens', 'Magnets', 'phone']));
+    arrayOfClients.push(new Client(5,'vasya','petrov','vasya52@gmail.com', '+380678305729', ['Notebooks', 'Pens', 'Magnets','phone','notebook']));
+    arrayOfClients.push(new Client(8,'kolya','mongol','kolya26@gmail.com', '+380956295037', ['Notebooks', 'Pens']));
+    arrayOfClients.push(new Client(42,'olya','tatar','olya425@gmail.com', '+380730475294', ['Notebooks']));
+    arrayOfClients.push(new Client(13,'max','sheva','max412@gmail.com', '+380937503854', ['Notebooks','Magnets', 'markers']));
+    arrayOfClients.push(new Client(54,'anya','gordon','anya462@gmail.com', '+380562435623', ['Notebooks', 'Pens', 'Magnets', 'tablet', 'notebook', 'phone']));
+    arrayOfClients.push(new Client(27,'oleg','rubak','oleg6@gmail.com', '+380623462346', ['Notebooks', 'Pens', 'Magnets', 'phone']));
+    arrayOfClients.push(new Client(16,'andrey','rudyu','andrey24@gmail.com', '+380846345264', [ 'Pens', 'Magnets']));
+    arrayOfClients.push(new Client(2,'masha','berezovskiy','masha1@gmail.com', '+380163452653', ['Magnets']));
+    arrayOfClients.push(new Client(9,'oleksandr','antonov','oleks9@gmail.com', '+380724547234', ['Notebooks', 'Pens', 'Magnets', 'table']));
+    console.log(arrayOfClients);
+    let clientsSorted = arrayOfClients.sort((num1, num2)=>{
+        return num1.order.length-num2.order.length;
+    });
+    console.log(clientsSorted);
+    //////////
+    function Car(model, manufacturer, year, maxspeed, enginesize){
+        this.model=model;
+        this.manufacturer=manufacturer;
+        this.year=year;
+        this.maxspeed=maxspeed;
+        this.enginesize=enginesize;
+        this.drive = function (){
+            console.log(`Ми їдемо зі швидкістю ${this.maxspeed}`);
+        }
+        this.info = function (){
+            console.log('Model - ', this.model);
+            console.log('manufacturer - ', this.manufacturer);
+            console.log('Year - ', this.year);
+            console.log('Max speed - ', this.maxspeed);
+            console.log('Engine size - ', this.enginesize);
+        }
+        this.increaseMaxSpeed = function (NewSpeed){
+            this.maxspeed += NewSpeed;
+        }
+        this.changeYear = function (newValue){
+            this.year = newValue;
+        }
+        this.addDriver = function (driver){
+            this.driver=driver;
+
+        }
+    }
+    let car = new Car('BMW','Germany', '2006', 300, 4395);
+    car.drive();
+    car.info();
+    car.increaseMaxSpeed(500);
+    car.drive();
+    car.changeYear(2030);
+    console.log(car);
+    car.addDriver({tile: 'hello'});
+    console.log(car);
+    //////////
+
+    class CarClass{
+        constructor(model, manufacturer, year, maxspeed, enginesize) {
+            this.model=model;
+            this.manufacturer=manufacturer;
+            this.year=year;
+            this.maxspeed=maxspeed;
+            this.enginesize=enginesize;
+        }
+        drive(){
+            console.log(`їдемо зі швидкістю ${this.maxspeed} на годину`);
+        }
+        info = function (){
+            console.log('Model - ', this.model);
+            console.log('manufacturer - ', this.manufacturer);
+            console.log('Year - ', this.year);
+            console.log('Max speed - ', this.maxspeed);
+            console.log('Engine size - ', this.enginesize);
+        }
+        increaseMaxSpeed = function (NewSpeed){
+            this.maxspeed += NewSpeed;
+        }
+        changeYear = function (newValue){
+            this.year = newValue;
+        }
+        addDriver = function (driver){
+            this.driver=driver;
+        }
+    }
+    let carsclass = new CarClass('BMW', 'Germany', '2006', 300, 4395);
+    carsclass.info();
+    carsclass.drive();
+    carsclass.increaseMaxSpeed();
+    carsclass.changeYear();
+    carsclass.addDriver();
+    ///////////
+    function Cinderella(name, age, footSize){
+        this.name=name;
+        this.age=age;
+        this.footSize=footSize;
+    }
+    let arrayOfCinderella = [];
+    arrayOfCinderella.push(new Cinderella('Olivia', 20, 30));
+    arrayOfCinderella.push(new Cinderella('Emma', 20, 35));
+    arrayOfCinderella.push(new Cinderella('Ava', 19, 32));
+    arrayOfCinderella.push(new Cinderella('Sophia', 18, 36));
+    arrayOfCinderella.push(new Cinderella('Isabella', 21, 38));
+    arrayOfCinderella.push(new Cinderella('Mia', 20, 37));
+    arrayOfCinderella.push(new Cinderella('Amelia', 22, 34));
+    arrayOfCinderella.push(new Cinderella('Harper', 21, 31));
+    arrayOfCinderella.push(new Cinderella('Evelyn', 21, 40));
+    arrayOfCinderella.push(new Cinderella('Abigail', 23, 29));
+
+    class Prince{
+        constructor(name, age, shoe){
+             this.name=name;
+             this.age=age;
+             this.shoe=shoe;
+        }
+    }
+    let prince = new Prince('Andrey', 28, 37);
+    let princesWife;
+    for (const item of arrayOfCinderella) {
+        if(item.footSize===prince.shoe){
+            princesWife=item;
+        }
+    }
+    console.log(princesWife);
+    console.log(arrayOfCinderella.find(value => value.footSize===prince.shoe));
+    //////////
+    Array.prototype.ForEachByBe = function (callback) {
+        let arr = this;
+        for (const arrElement of arr) {
+            callback(arrElement);
+        }
+    };
+    [7,4,45,24,64].ForEachByBe((value) => console.log(value));
+
+    Array.prototype.MyFilter = function (callback){
+        let array = [];
+        for (const item of this) {
+            if (callback(item)) {
+                array.push(item);
+            }
+        }
+        return array;
+    }
+
+
+</script>
+</body>
+</html>
