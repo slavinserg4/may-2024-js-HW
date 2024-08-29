@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .button{
+            height: 50px;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+<button onclick="divFirst.style.display = 'none'"  class="button"></button>
+<div id="text"></div>
+<script>
+    let divFirst = document.getElementById('text')
+    document.body.appendChild(divFirst);
+    divFirst.style.height = '100px';
+    divFirst.style.background = 'silver';
+    divFirst.style.width = '100px';
+</script>
+</body>
+</html>

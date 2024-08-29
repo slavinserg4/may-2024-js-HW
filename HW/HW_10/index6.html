@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="vaga" type="number" >
+<script>
+    let formKg = document.getElementById('vaga');
+    let newDiv = document.createElement('div');
+    let fount;
+    formKg.oninput = function (){
+        fount = formKg.value*2.20462262;
+        newDiv.innerText = fount;
+        document.body.appendChild(newDiv);
+    }
+    
+    
+    
+</script>
+</body>
+</html>

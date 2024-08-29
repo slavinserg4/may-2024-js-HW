@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form1">
+    <input type="number" name="age" id="age">
+    <button>Submit</button>
+</form>
+<script>
+    let form1 = document.forms.form1;
+    form1.onsubmit = function (event){
+        event.preventDefault();
+        let age = this.age.value;
+        if(age<18){
+            console.log('Тобі нема 18!!');
+        }
+        else{
+            console.log('Тобі більше 18');
+        }
+    };
+
+</script>
+</body>
+</html>

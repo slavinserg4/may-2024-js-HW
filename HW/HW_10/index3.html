@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .for-div{
+            height: 100px;
+            width: 120px;
+            background-color: silver;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<form name="form1">
+  <input type="text" name="name">
+  <input type="text" name="surname">
+  <input type="number" name="age">
+  <button>save</button>
+</form>
+<script>
+
+  let form1 = document.form1;
+  form1.onsubmit = function (event) {
+    event.preventDefault();
+     let name = this.name.value;
+     let surname = this.surname.value;
+     let age= this.age.value;
+     console.log({name, surname, age});
+     let newDiv = document.createElement('div');
+     newDiv.innerText = name + ' ' + surname + ' ' + age;
+     newDiv.classList.add('for-div')
+     document.body.appendChild(newDiv);
+  }
+
+
+
+
+
+</script>
+</body>
+</html>

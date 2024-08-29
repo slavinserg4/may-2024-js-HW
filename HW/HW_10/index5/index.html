@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sessionList = [];
+    if(localStorage.getItem('SessionsList')){
+        sessionList = JSON.parse(localStorage.getItem('SessionsList'));
+    }
+    sessionList.push(new Date());
+    localStorage.setItem('SessionsList', JSON.stringify(sessionList));
+
+</script>
+</body>
+</html>

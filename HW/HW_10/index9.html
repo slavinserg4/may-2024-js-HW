@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .for-div{
+            height: 200px;
+            width: 200px;
+            background-color: silver;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let divNumber = document.createElement('div');
+    divNumber.classList.add('for-div');
+    document.body.appendChild(divNumber);
+    let i=100;
+    if(localStorage.getItem('visited')){
+        i=JSON.parse(localStorage.getItem('visited'))
+    }
+    let time = new Date();
+    if(time.getSeconds()+10<time.getSeconds()){
+        i+=10;
+    }
+    localStorage.setItem('visited', JSON.stringify(i));
+    divNumber.innerText = i;
+
+
+
+</script>
+</body>
+</html>

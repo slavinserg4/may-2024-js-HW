@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="tableForm">
+    <input type="number" name="lines">
+    <input type="number" name="cells">
+    <input type="text" name="data">
+    <button>generate</button>
+</form>
+<table id="table">
+
+</table>
+<script>
+    let table = document.getElementById('table');
+
+    let tableForm = document.forms['tableForm'];
+
+    tableForm.onsubmit = function (event) {
+        event.preventDefault();
+        let tableLines = +tableForm.lines.value;
+        let tableCells = +tableForm.cells.value;
+        let tableData = tableForm.data.value;
+        for (let i = 0; i < tableLines; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < tableCells; j++) {
+                let td = document.createElement('td');
+                td.innerText = tableData;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    }
+
+</script>
+</body>
+</html>
