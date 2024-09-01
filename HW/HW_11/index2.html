@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    fetch('https://dummyjson.com/recipes?limit=50')
+        .then(res => res.json())
+        .then(recipesObj =>{
+            const {recipes} = recipesObj;
+            for (const recipe of recipes) {
+                let div = document.createElement('div');
+
+                let id = document.createElement('h2');
+                id.innerText = 'Id: ' + recipe.id;
+
+                let name = document.createElement('h3');
+                name.innerText = 'Name: ' + recipe.name;
+
+                let ingLi = document.createElement('h4');
+                ingLi.innerText = 'Ingredients'
+                let divIngredients = document.createElement('div');
+                let ul = document.createElement('ul');
+                for (const ingred of recipe.ingredients) {
+                    let li = document.createElement('li');
+                    li.innerText = ingred;
+                    ul.appendChild(li);
+                }
+                divIngredients.append(ingLi,ul);
+
+                let divInstructions = document.createElement('div');
+                let inst = document.createElement('h4');
+                inst.innerText = 'Instructions';
+                let divForInstruct = document.createElement('div');
+                for (const instruct of recipe.instructions) {
+                    let instruction = document.createElement('p');
+                    instruction.innerText = instruct;
+                    divForInstruct.append(instruction);
+                }
+                divInstructions.append(inst,divForInstruct);
+                ////////
+                let divForOther = document.createElement('div');
+                let prepTime = document.createElement('h3');
+                prepTime.innerText = 'prepTimeMinutes: ' + recipe.prepTimeMinutes;
+
+                let cookTime = document.createElement('h3');
+                cookTime.innerText = 'cookTimeMinutes: ' + recipe.cookTimeMinutes;
+
+                let servings = document.createElement('h3');
+                servings.innerText = 'servings: ' + recipe.servings;
+
+                let difficulty = document.createElement('h3');
+                difficulty.innerText = 'difficulty: ' + recipe.difficulty;
+
+                let cuisine = document.createElement('h3');
+                cuisine.innerText = 'cuisine: ' + recipe.cuisine;
+
+                let caloriesPerServing = document.createElement('h3');
+                caloriesPerServing.innerText = 'caloriesPerServing: ' + recipe.caloriesPerServing;
+
+                let tagName = document.createElement('h4');
+                tagName.innerText = 'Tags: ';
+                let tagUl = document.createElement('ul');
+                for (const tag of recipe.tags) {
+                    let fTag = document.createElement('li');
+                    fTag.innerText = tag;
+                    tagUl.append(fTag);
+                }
+                divForOther.append(prepTime, cookTime,servings, difficulty, cuisine, caloriesPerServing, tagName, tagUl );
+                ////////////
+
+                let lastDiv = document.createElement('div');
+
+                let userId = document.createElement('h3');
+                userId.innerText = 'UserId: ' + recipe.userId;
+
+                let image = document.createElement('img');
+                image.src = recipe.image;
+
+                let rating = document.createElement('h3');
+                rating.innerText = 'rating: ' + recipe.rating;
+
+                let reviewCount = document.createElement('h3');
+                reviewCount.innerText = 'reviewCount: ' + recipe.reviewCount;
+
+                let mealType = document.createElement('h4');
+                mealType.innerText = 'MealType: ';
+                let mealTypeUl = document.createElement('ul');
+                for (const meal of recipe.mealType) {
+                    let mealLi = document.createElement('li');
+                    mealLi.innerText = meal;
+                    mealTypeUl.append(mealLi);
+                }
+                lastDiv.append(userId, image,rating, reviewCount, mealType, mealTypeUl );
+
+
+                let hr = document.createElement('hr');
+                div.append(id, name,divIngredients,divInstructions, divForOther, lastDiv, hr);
+                document.body.append(div);
+
+            }
+        });
+
+
+</script>
+</body>
+</html>

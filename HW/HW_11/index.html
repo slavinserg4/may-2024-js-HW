@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .FlexProd{
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+        }
+        .forProducts{
+            width: 240px;
+            border: 2px solid grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<script>
+    fetch('https://dummyjson.com/carts?limit=50')
+        .then(res => res.json())
+        .then((productsObject)=>{
+            const {carts} = productsObject;
+            for (const cart of carts) {
+                let div = document.createElement('div');
+                div.classList.add('div')
+
+                let index = document.createElement('h2');
+                index.innerText = 'Id: ' + cart.id;
+
+                let divForProducts = document.createElement('div');
+                let productsList = document.createElement('h3');
+                divForProducts.classList.add('FlexProd')
+                productsList.innerText = 'Products:';
+                div.append(index,productsList, divForProducts);
+                for (const product of cart.products) {
+                    let productDiv = document.createElement('div');
+                    productDiv.classList.add('forProducts');
+                    let prodId = document.createElement('p');
+                    prodId.innerText = 'Id:' + product.id;
+
+                    let prodTitle = document.createElement('p');
+                    prodTitle.innerText = product.title;
+
+                    let prodPrice = document.createElement('p');
+                    prodPrice.innerText = 'Price: ' + product.price;
+
+                    let prodQuantity = document.createElement('p');
+                    prodQuantity.innerText = 'Quantity: ' + product.quantity;
+
+                    let prodTotal = document.createElement('p');
+                    prodTotal.innerText = 'Total: ' + product.total;
+
+                    let prodDiscountPercentage = document.createElement('p');
+                    prodDiscountPercentage.innerText = 'DiscountPercentage: ' + product.discountPercentage;
+
+                    let prodDiscountedTotal = document.createElement('p');
+                    prodDiscountedTotal.innerText = 'DiscountedTotal: ' + product.discountedTotal;
+
+                    let thumbnail = document.createElement('img');
+                    thumbnail.src = product.thumbnail;
+
+                    productDiv.append(prodId, prodTitle, prodPrice, prodQuantity, prodTotal, prodDiscountPercentage, prodDiscountedTotal, thumbnail);
+                    divForProducts.appendChild(productDiv);
+                }
+
+                let hr = document.createElement('hr');
+                document.body.append(div, hr);
+            }
+        });
+
+
+</script>
+</body>
+</html>
